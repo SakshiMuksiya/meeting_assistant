@@ -1,0 +1,25 @@
+# Secrets — NEVER commit these
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Whisper model cache (large files, downloaded automatically)
+~/.cache/whisper/
+
+# Output files (re-generated each run)
+output/
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
+Thumbs.db

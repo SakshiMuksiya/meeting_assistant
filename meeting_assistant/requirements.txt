@@ -1,0 +1,44 @@
+# ══════════════════════════════════════════════════════════════
+#  Meeting Assistant — Python dependencies
+#  Install with: pip install -r requirements.txt
+#
+#  Python 3.10+ required.
+#  GPU users: after installing, run:
+#    pip install torch --index-url https://download.pytorch.org/whl/cu118
+#  to get CUDA-accelerated Whisper.
+# ══════════════════════════════════════════════════════════════
+
+
+# ── Audio capture ──────────────────────────────────────────────
+sounddevice>=0.4.6          # Cross-platform microphone access
+numpy>=1.24.0               # PCM audio as numpy arrays
+
+
+# ── Speech-to-text ─────────────────────────────────────────────
+openai-whisper>=20231117    # Whisper model (runs locally, no API key needed)
+# Whisper pulls in torch automatically. If you want a lighter install,
+# you can use `faster-whisper` instead — see comments in whisper_engine.py.
+
+
+# ── LLM API ────────────────────────────────────────────────────
+openai>=1.30.0              # OpenAI Python SDK v1 — used as the HTTP client for Gemini's compatible endpoint
+
+
+# ── Context memory (vector store — optional) ───────────────────
+# Uncomment these if you set memory.enable_vector_store = True in config.py
+# sentence-transformers>=2.7.0
+# faiss-cpu>=1.8.0           # Use faiss-gpu if you have a CUDA GPU
+
+
+# ── Data handling ──────────────────────────────────────────────
+pydantic>=2.0.0             # Typed dataclasses with validation for agent outputs
+
+
+# ── Frontend ───────────────────────────────────────────────────
+streamlit>=1.35.0           # Live dashboard UI
+
+
+# ── Utilities ──────────────────────────────────────────────────
+python-dotenv>=1.0.0        # Load GEMINI_API_KEY from a .env file
+tenacity>=8.2.0             # Automatic retry logic for API calls
+loguru>=0.7.0               # Structured, coloured logging (drop-in for logging)
